@@ -1,0 +1,28 @@
+{
+  "name": "blog-sewerlabour-llettell",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+  },
+  "author": "sewerlabour",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "consolidate": "^0.15.1",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "express-winston": "^2.6.0",
+    "jquery": "^3.3.1",
+    "less": "^3.8.0",
+    "mysql": "^2.16.0",
+    "winston": "^2.4.3"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.0"
+  }
+}

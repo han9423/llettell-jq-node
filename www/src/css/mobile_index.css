@@ -1,0 +1,101 @@
+main .container header {
+  border: none; }
+  main .container header .menu {
+    z-index: 5;
+    overflow: hidden;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    display: inline-block;
+    background: url(../images/icons/menu.svg);
+    background-size: cover;
+    top: 17px;
+    margin-top: -13px;
+    margin-left: 14px; }
+  main .container header .menu_out {
+    background: url(../images/icons/menuwrong.svg);
+    background-size: cover; }
+  main .container header .header_left ul {
+    display: none; }
+  main .container header .header_right {
+    width: 45%;
+    height: 100%; }
+    main .container header .header_right .search {
+      width: 100%; }
+      main .container header .header_right .search input {
+        margin-right: 10px; }
+    main .container header .header_right .user {
+      display: none; }
+
+.cover {
+  display: block;
+  z-index: 10;
+  width: 50%;
+  height: 100%;
+  background: #ebebeb;
+  position: absolute;
+  top: 0;
+  transition: transform 0.5s ease;
+  -webkit-transition: transform 0.5s ease;
+  -moz-transition: transform 0.5s ease;
+  -o-transition: transform 0.5s ease;
+  -ms-transition: transform 0.5s ease;
+  -ms-transform: translate(-200px);
+  -moz-transform: translate(-200px);
+  -o-transform: translate(-200px);
+  -webkit-transform: translate(-200px);
+  transform: translate(-200px); }
+  .cover .mobile_mylogo {
+    width: 100%;
+    height: 23%;
+    position: relative;
+    margin-bottom: 40px; }
+    .cover .mobile_mylogo div {
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -30px;
+      margin-top: -30px; }
+      .cover .mobile_mylogo div img {
+        width: 100%;
+        height: 100%; }
+    .cover .mobile_mylogo section {
+      width: 100%;
+      height: 30px;
+      position: absolute;
+      bottom: 0; }
+      .cover .mobile_mylogo section h3 {
+        line-height: 30px;
+        text-align: center; }
+  .cover .mobile_list {
+    width: 100%;
+    height: 57%;
+    position: relative; }
+    .cover .mobile_list ul {
+      width: 100%;
+      height: 80%; }
+      .cover .mobile_list ul li {
+        width: 100%;
+        height: 35px;
+        text-align: center;
+        line-height: 35px; }
+        .cover .mobile_list ul li a {
+          color: #2a2a2a; }
+  .cover .test ul li {
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    line-height: 35px; }
+    .cover .test ul li a {
+      color: #2a2a2a; }
+
+.out {
+  transform: translate(0px);
+  -ms-transform: translate(0px);
+  -moz-transform: translate(0px);
+  -o-transform: translate(0px);
+  -webkit-transform: translate(0px); }
+
+/*# sourceMappingURL=mobile_index.css.map */

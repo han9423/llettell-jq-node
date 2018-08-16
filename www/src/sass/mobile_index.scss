@@ -1,0 +1,141 @@
+@mixin box($width,$height){
+    width: $width;
+    height: $height;
+}
+@mixin suit_trans($var...){
+    -webkit-transition:$var .6s; 
+    -o-transition:$var .6s; 
+    -ms-transition:$var .6s; 
+    -moz-transition:$var .6s; 
+    transition: $var .6s;
+}
+@mixin posCenter($top,$left){
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin:{
+        left: $left;
+        top: $top;
+    }
+}
+main{
+    .container{
+        header{
+            border: none;
+            .menu{
+                z-index: 5;
+                overflow: hidden;
+                @include box(26px,26px);
+                position: absolute;
+                display: inline-block;
+                background:url(../images/icons/menu.svg);
+                background-size: cover;
+                top: 17px;
+                margin: {
+                    top: -13px;
+                    left: 14px;
+                }
+            }
+            .menu_out{
+                background: url(../images/icons/menuwrong.svg);
+                background-size: cover;
+            }
+            .header_left{
+                ul{
+                  display: none;
+                }
+            }
+            .header_right{
+                @include box(45%,100%);
+                .search{
+                    width: 100%;
+                    input{
+                        margin-right: 10px;
+                    }
+                }
+                .user{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+.cover{
+    display: block;
+    z-index: 10;
+    width: 50%;
+    height: 100%;
+    background: #ebebeb;
+    position: absolute;
+    top: 0;
+    transition: transform 0.5s ease;
+    -webkit-transition: transform 0.5s ease;
+    -moz-transition: transform 0.5s ease;
+    -o-transition: transform 0.5s ease;
+    -ms-transition: transform 0.5s ease;
+    -ms-transform: translate(-200px);
+    -moz-transform: translate(-200px);
+    -o-transform: translate(-200px);
+    -webkit-transform: translate(-200px);
+    transform: translate(-200px);
+    .mobile_mylogo{
+        @include box(100%,23%);
+        position: relative;
+        margin-bottom:40px;
+        div{
+            @include box(60px,60px);
+            @include posCenter(-30px,-30px);
+            img{
+                @include box(100%,100%);
+            }
+        }
+        section{
+            @include box(100%,30px);
+            position: absolute;
+            bottom: 0;
+            h3{
+                line-height: 30px;
+                text-align: center;
+            }
+        }
+    }
+    @mixin mobile_aside{
+        li{
+            @include box(100%,35px);
+            text-align: center;
+            line-height: 35px;
+            a{
+                color: #2a2a2a;
+            }
+        }
+    }
+
+    .mobile_list{
+        @include box(100%,57%);
+        position: relative;
+        // border-bottom: 1px solid #000;
+        ul{
+            @include box(100%,80%);
+            @include mobile_aside;
+        }
+    }
+    .test{
+        ul{
+            li{
+                @include box(100%,35px);
+                text-align: center;
+                line-height: 35px;
+                a{
+                    color: #2a2a2a; 
+                }
+            }
+        }
+    }
+}
+.out{
+    transform: translate(0px);
+    -ms-transform: translate(0px);
+    -moz-transform: translate(0px);
+    -o-transform: translate(0px);
+    -webkit-transform: translate(0px);
+}

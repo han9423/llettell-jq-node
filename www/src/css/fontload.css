@@ -1,0 +1,5 @@
+@font-face{
+    font-family: "youyuan";
+    src: url("../font/font1299/youyuan.ttf");
+}
+*{font-family: "youyuan";font-size: 16px}
