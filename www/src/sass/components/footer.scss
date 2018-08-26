@@ -1,0 +1,19 @@
+footer{
+    @include box(100%,100px);
+    background-color: #ebebeb;
+    position: relative;
+    border-radius: 5px;
+    bottom: 0;
+    div{
+        height: 100%;
+        position: relative;
+        section{
+            @include box(200px,50px);
+            display: inline-block;
+            @include posCenter(-25px,-100px);
+            p{
+                text-align: center;
+            }
+        }
+    }
+}

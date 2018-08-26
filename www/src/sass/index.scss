@@ -16,12 +16,19 @@
     -moz-transition:$var .6s; 
     transition: $var .6s;
 }
-@mixin scale_animaition($num){
+@mixin scale_animation($num){
     -webkit-transform:scale($num);
     -ms-transform:scale($num);
     -o-transform:scale($num);
     -moz-transform:scale($num);
     transform:scale($num);
+}
+@mixin translate_animation($x,$y){
+    -webkit-transform:translate($x,$y);
+    -ms-transform:translate($x,$y);
+    -o-transform:translate($x,$y);
+    -moz-transform:translate($x,$y);
+    transform:translate($x,$y);
 }
 @mixin suit_filter($value){
     -webkit-filter: grayscale($value);
@@ -34,7 +41,7 @@
     background-color: rgb(31, 30, 30);
     color: #fff;
 }
-@mixin  lightMode(){
+@mixin lightMode(){
     background-color: #fff;
     color: rgb(31, 30, 30);
 }
@@ -71,463 +78,38 @@ main{
         overflow: hidden;
         font-size: .7rem;
     }
-    .container{
+    .container{ 
         width: 110%;
         overflow-y: auto;
         height:686px;
-        header{
-            box-sizing: border-box;
-            width: 100%;
-            height: 35px;
-            background-color: #ebebeb;
-            border: 1px solid rgba(153, 153, 153, 0.7);
-            @media screen and (max-width:640px){
-                
-            }
-            #menu{
-                display: none;
-            }
-            .header_left{
-                @include box(45%,100%);
-                cursor: default;
-                display: inline-block;
-                ul{
-                    @include box(100%,100%);
-                    position: relative;
-                    li{
-                        float: left;
-                        display: inline-block;
-                        @include box(100%/3,100%); 
-                        font-size: .13rem;
-                        text-align: center;
-                        position: relative;
-                        user-select: none;
-                        &:hover{
-                            color: #807c7c;
-                        }
-                        &:active{
-                            position: relative;
-                            top: 2px;
-                        }
-                        .icons_tags{
-                            display: inline-block;
-                            background: url(../images/icons/tags.svg);
-                            @include box(25px,25px);
-                            background-size: cover;
-                            margin-top: 3px;
-                        }
-                        .icons_cate{
-                            display: inline-block;                            
-                            background: url(../images/icons/Categories.svg);
-                            @include box(25px,25px);
-                            background-size: cover;
-                            margin-top: 3px;
-                        }
-                        .icons_share{
-                            display: inline-block;
-                            background: url(../images/icons/share.svg);
-                            @include box(25px,25px);
-                            background-size: cover;
-                            margin-top: 3px;
-                        }
-                    }
-                }
-            }
-            .header_right{
-                float: right;  
-                margin-right:10%; 
-                @include box(280px,35px);
-                position: relative;
-                &::after{
-                    @include clearfloat;
-                }
-                .search{
-                    position: relative;
-                    @include box(190px,100%);
-                    display: inline-block;
-                    #input_search{
-                        position: absolute;
-                        right: 0;
-                        @include box(40px,26px);
-                        z-index: 1;
-                        border-radius: 10px;
-                        border:none;
-                        top: 50%;
-                        background: #8a8a8a;
-                        margin-top: -14px;
-                        padding: 5px;
-                        outline: none;
-                    }
-                    #search_btn{
-                        top: 50%;
-                        margin-top: -14px;
-                        z-index: 2;
-                        position: absolute;
-                        @include box(40px,26px);
-                        right: 0;
-                        outline: none;
-                        border: none;
-                        background-color: #8a8a8a;
-                        border-radius: 10px;
-                        color: #fff;
-                        @include suit_trans(transform);
-                        &:active{
-                            @include scale_animaition(.6);
-                        }
-                    }
-                }
-                .user{
-                    @include box(40px,26px);
-                    display: inline-block;  
-                    float: right;
-                    @include textCenter(26px);
-                    position: absolute;
-                    top: 50%;
-                    right: 5px;
-                    margin-top: -14px;  
-                    background-color:  #8a8a8a;
-                    color: #fff;
-                    border-radius: 10px;
-                    margin-right: 30px;
-                    cursor: default;
-                    @include suit_trans(transform);
-                    &:hover{}
-                    &:active{
-                        @include scale_animaition(.6);
-                    }
-                }
-            }
-        }
-        .content{
-            overflow: hidden;
-        }
-        footer{
-            @include box(100%,120px);
-            background-color: blue;
-            position: relative;
-            border-radius: 5px;
-            bottom: 0;
-        }
+        @import "./components/header.scss";
+        @import "./components/content.scss";
+        @import "./components/footer.scss";
+    }
+    .mixFunc{
+        z-index: 11;
+        display: none;
+        border-radius: 10px;
+        background-color: #fff;
+        @include box(600px,400px);
+        animation: mixFunc_out 0.7s ease;
+        -webkit-animation: mixFunc_out 0.7s ease;
+        -moz-animation: mixFunc_out 0.7s ease;
+        -ms-animation: mixFunc_out 0.7s ease;
+        -o-animation: mixFunc_out 0.7s ease;
+        box-shadow: 0 0 10px #242424;        
+        @include posCenter(-200px,-300px);
+    }
+    @keyframes mixFunc_out{
+        0% {@include posCenter(-3000px,-300px);}
+        50% {@include posCenter(-200px,-300px);}
+        75% {@include posCenter(-190px,-300px);}
+        100% {@include posCenter(-200px,-300px);}
     }
 }
 
 //侧边
-aside{
-    width: 20%;
-    right:-5px;
-    position: relative;
-    background: #fff;
-    box-shadow: 0 1px 3px rgba(26,26,26,.3);
-    display: inline-block;
-    border-radius: 5px;
-    box-sizing: border-box;
-    user-select: none;
-    font-size: 0.11rem;
-    @include suit_trans(box-shadow,right);
-    @media screen and (max-width:"640px") {
-        display: none;
-    }
-    &:hover{
-        box-shadow: 0 1px 5px rgba(26, 26, 26, 0.5);
-        right: -10px;
-    }
-    .aside_container{
-        @include box(100%,100%);
-        .aside_top{
-            height: 40%;
-            width: 100%;
-            border-bottom: 1px solid rgb(165, 165, 165);
-            position: relative;
-            .top_bar{
-                @include box(100%,35px);
-                border-bottom: 1px solid rgba(153, 153, 153, 0.7);
-                background-color: rgb(235, 235, 235);
-                ul{
-                    position: relative;
-                    height: 100%;
-                    li{
-                        display: inline-block;
-                        float: left;
-                    }
-                    .icon_arrow{
-                        width: 25%;
-                        height: 100%;
-                        border-left: 1px solid #999; 
-                        span{
-                            line-height: 3;
-                            margin-left: 0.055rem;
-                            img{
-                                width: 20px;
-                                height:20px;
-                            }                      
-                        }    
-                    }
-                    .icon_font{
-                        width: 50%;
-                        height: 100%;
-                        border-left: 1px solid #999;
-                        color: rgb(49, 49, 49);
-                        span:nth-child(1){
-                            margin-left: 10px;
-                            line-height:35px;
-                        }
-                        span:nth-child(2){
-                            display: inline-block;
-                            width: 14px;
-                            height: 14px;
-                            img{
-                                width: 100%;
-                                height: 100%;
-                            }
-                            margin:{
-                                left: 15px;
-                                top: -7px;
-                            }
-                            position: absolute;
-                            top: 50%;
-                        }
-                    }
-                    .icon_wrong{
-                        width: 25%;
-                        height: 100%;
-                        border-left: 1px solid #999;
-                        span{
-                            line-height: 2.8;
-                            margin-left: 0.055rem;
-                            img{
-                                @include box(19px,19px);
-                            }                      
-                        }    
-                    }
-                }
-            }
-            .inside_bar{
-                font-size: 14px;
-                overflow: hidden;
-                .control_margin{
-                    margin:{
-                        left :10px;
-                        top: 5px;
-                    } 
-                    .icon{
-                        background:url(../images/icons/arrow3.png);
-                        background-size: cover;
-                        width: 14px;
-                        height: 14px;
-                        display: inline-block;
-                    }
-                    .span_gray{
-                        color:#999;
-                    }
-                    .span_violet{
-                        color: rgb(125, 33, 148);
-                    }
-                    .span_green{
-                        color: #707070;
-                        font-size:23px;
-                        font-weight: 600;   
-                    }
-                }
-            }
-            .bottom_bar{
-                @include box(100%,25px);
-                border-top: 1px solid #999;
-                position: absolute;
-                bottom: 0;
-                $bottom: 100%/7;
-                ul{
-                    @include box(100%,100%);
-                    text-align:center;
-                    li{
-                        color: rgb(49, 49, 49);
-                        line-height: 25px;
-                        display: inline-block;
-                        float: left;
-                        @include box($bottom,100%);
-                        &::after{
-                            @include clearfloat;
-                        }
-                    }
-                    li:nth-child(1){
-                        margin-left: 14px;
-                    }
-                }
-            }
-        }
-        .aside_bottom{
-            @include box(100%,60%);
-            position: relative;
-            top: 0;
-            .bottom_top{
-                @include box(100%,35px);
-                background-color:  #ebebeb;
-                border-bottom: 1px solid rgba(165, 165, 165, 0.746);
-                ul{
-                    position: relative; 
-                    @include box(100%,100%);
-                    li:nth-child(1){
-                        @include box(20%,90%);
-                        border: 1px solid rgba(182, 181, 181, 0.911);
-                        background: rgb(248, 248, 248);
-                        position: absolute;
-                        bottom: 0;
-                        left: 10px;
-                        z-index: 1;
-                        @include textCenter(31.5px);
-                        color:  #313131;
-                        &:hover{
-                            background: #ebebeb;
-                        }
-                    }
-                    li:nth-child(2){
-                        @include box(80px,90%);
-                        position: absolute;
-                        z-index: 1;
-                        @include textCenter(31.5px);
-                        left: 70px;
-                        bottom: 0;
-                        color:  #313131;
-                        &:hover{
-                            background: rgb(224, 224, 224);
-                        }
-                    }
-                    li:nth-child(3){
-                        @include box(14px,14px);
-                        position: absolute;
-                        z-index: 1;
-                        background: url(../images/icons/arrow2.svg);
-                        background-size: cover;
-                        left: 170px;
-                        top: 50%;
-                        margin-top: -7px;
-                    }
-                }
-            }
-            .bottom_inside{
-                @include box(100%,35px);
-                border-bottom: 1px solid rgba(165, 165, 165, 0.746);
-                position: relative;
-                ul{
-                    position: relative;
-                    @include box(100%,100%);
-                    li{
-                        float: left;   
-                        &::after{
-                            @include clearfloat;
-                        }
-                        @include textCenter(35px);
-                    }
-                    @include box(100%,100%);
-                    li:nth-child(1){
-                        @include box(58%,100%);
-                        text-align: left;
-                        padding-left: 10px;
-                        color: #a39f9f;
-                        &:hover{
-                            background: rgb(224, 224, 224);
-                        }   
-                    }
-                    li:nth-child(2){
-                        @include box(14%,100%);
-                        color: #313131;
-                        font-weight: bold;
-                        &:hover{
-                            background: rgb(224, 224, 224);
-                        }
-                    }
-                    li:nth-child(3){
-                        @include box(14%,100%);
-                        font-weight: bold;
-                        color: #313131;
-                        &:hover{
-                            background: rgb(224, 224, 224);
-                        }
-                    }
-                    li:nth-child(4){
-                        @include box(14%,100%);
-                        span{
-                            display: inline-block;
-                            @include box(14px,14px);
-                            background: url(../images/icons/plus.svg);
-                            background-size: cover; 
-                        }
-                        &:hover{
-                            background: rgb(224, 224, 224);
-                        }
-                    }
-                }
-            }
-            .bottom_content{
-                @include box(100%,30%);
-                border-bottom: 1px solid #999;
-                position: relative;
-                background:#ebebeb;
-                .connect_me{
-                    @include box(240px,60px);
-                    @include posCenter(-30px,-120px);
-                    ul{
-                        @include box(100%,100%);
-                        li{
-                            float: left;
-                            @include box(23%,100%);
-                            position: relative;
-                            background-color: rgb(212, 212, 212);
-                            margin-right: 4px;
-                            border-radius: 10px;    
-                            img{
-                                @include posCenter(-20px,-20px);
-                                @include box(40px,40px);
-                                @include suit_trans(top);
-                                &:hover{};
-                                &:active{
-                                    position: relative;
-                                    top: 0px;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            .my_logo{
-                @include box(100%,50%);
-                position: relative;
-                font-size: 12px;
-                .margin{
-                    @include box(220px,160px);
-                    @include posCenter(-80px,-110px);
-                    border:1.5px dashed #242424;
-                    z-index: 1;
-                    &:hover{
-                        background: rgb(248, 167, 35);
-                    }
-                    .border{
-                        @include box(180px,120px);
-                        @include posCenter(-60px,-90px);                        
-                        border: 1.5px solid #242424; 
-                        z-index: 2;
-                        background: #fff;
-                        &:hover{
-                            background: rgb(250, 194, 105);
-                        }   
-                        .padding{
-                            @include box(150px,90px);
-                            @include posCenter(-45px,-75px);  
-                            border:1.5px dashed #242424;
-                            &:hover{
-                                background: rgb(221, 154, 46);
-                            }  
-                            img{
-                                border: 1px solid #242424;
-                                @include box(80px,80px);
-                                @include posCenter(-40px,-40px);
-                            }
-                        }   
-                    }
-                }
-            }
-        }
-    }
-}
+@import "./components/aside.scss";
 .darkMode{
     @include darkMode();
 }
@@ -536,4 +118,108 @@ aside{
 }
 .cover{
     display: none;
+}
+//login_box
+.wrapper_login{
+    @include box(100%,100%);
+    border-radius: 10px;
+    position: relative;
+    .returnStatus{
+        position: absolute;
+        width: 100%;
+        display: block;
+        text-align: center;
+        position: absolute;
+        top: 60px;
+    }
+    .wrapper_top{
+        @include box(100%,50px);
+        ul{
+            @include box(100%,100%);
+            li{
+                user-select: none;
+                @include box(50%,100%);
+                display: inline-block;
+                float: left;
+                box-sizing: border-box;
+                background-color: #ebebeb;
+                @include textCenter(50px);
+                font-size: 22px;
+                &:hover{
+                    background: #e6e6e6;
+                }
+            }
+            li:nth-child(1){
+                border-radius: 10px 0px 0px 0px;
+            }
+            li:nth-child(2){
+                border-radius: 0px 10px 0px 0px;
+            }
+            @include clearfloat;
+        }
+    }
+
+    .wrapper_log{
+        position: relative;
+        @include box(100%,350px);
+        #form{
+            @include box(100%,350px);
+            .form_container{
+                @include box(390px,250px);
+                display: inline-block;
+                @include posCenter(-120px,-230px);
+                .inp {
+                    border: 1px solid #cccccc;
+                    border-radius: 2px;
+                    padding: 0 10px;
+                    width: 300px;
+                    height: 40px;
+                    font-size: 18px;
+                }
+        
+                .btn {
+                    display: inline-block;
+                    box-sizing: border-box;
+                    border-radius: 2px;
+                    @include box(80px,40px);
+                    line-height: 40px;
+                    text-align: center;
+                    font-size: 16px;
+                    color: #fff;
+                    cursor: pointer;
+                    background: rgb(67, 164, 255);
+                    position: absolute;
+                    left: 50%;
+                    &:hover{
+                        opacity: 0.8;
+                    }
+                    &:active{
+                        position: relative;
+                        top: 2px;
+                    }
+                }
+        
+                #captcha {
+                    width: 300px;
+                    display: inline-block;
+                    #wait {
+                        text-align: left;
+                        color: #666;
+                        margin: 0;
+                    }
+                }
+        
+                label {
+                    vertical-align: top;
+                    display: inline-block;
+                    width: 80px;
+                    text-align: right;
+                }
+        
+            }
+        }
+    }
+    // .wrapper_reg{
+    //     @include box(100%,40px);
+    // }
 }

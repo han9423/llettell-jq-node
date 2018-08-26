@@ -1,0 +1,256 @@
+
+@mixin wrapper{
+    .wrapper{
+        box-shadow: 0 0 10px #242424;
+        border-radius: 10px;
+        @include box(100%,100%);
+        @include suit_trans(all);
+        &:hover{
+            position: relative;
+            box-shadow: -4px 10px 7px #242424;
+            @include translate_animation(0px,-5px);
+            img{
+                -webkit-filter: blur(6px);
+                -moz-filter: blur(6px);
+                -ms-filter: blur(6px);
+                -o-filter: blur(6px);
+                filter: blur(6px);
+            }
+        }
+        .imageView{
+            @include box(100%,100%);
+            border: none;
+            overflow: hidden;
+            border-radius: 10px;
+            img{
+                border-radius: 10px;
+                @include box(100%,100%);
+            }
+        }
+        .textView{
+            position: absolute;
+            @include box(100%,120px);
+            top: 0; 
+            color: #000;
+            font-size: 20px;
+            padding: 10px;
+            overflow: hidden;
+        }
+        section{
+            border-radius: 0 0 10px 10px;
+            @include box(100%,70px);
+            position: absolute;
+            bottom: 0;
+            background: #ebebeb93;
+            @include textCenter(70px);
+            h3{
+                @include box(100%,70px);
+                color: #242424;
+                font-size: 18px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+@mixin article{
+    a{
+        .card{
+            position: absolute;
+            @include wrapper;
+        }
+    }
+}
+@mixin insert_left{
+    -webkit-animation: insert_left 0.6s ease;
+    -ms-animation: insert_left 0.6s ease;
+    -moz-animation: insert_left 0.6s ease;
+    -o-animation: insert_left 0.6s ease;
+}
+@mixin insert_right{
+    -webkit-animation: insert_right 0.6s ease;
+    -ms-animation: insert_right 0.6s ease;
+    -moz-animation: insert_right 0.6s ease;
+    -o-animation: insert_right 0.6s ease;
+}
+.content{
+    overflow: hidden;
+    @media screen and (min-width:640px){
+        .adjust_content{
+            @include box(100%,100%);
+            position: relative;
+            .page:nth-child(1){
+                margin-top: 0px;
+            }
+            .page{
+                margin-top: -20px;
+            }
+            .type1{
+                width: 100%;
+                // border:1px solid #000;
+                box-sizing: border-box;
+                position: relative;
+                @include article;
+                .div1{
+                    width: 350px;
+                    height:350px;
+                    top: 20px;
+                    left: 20px;
+                }
+                .div2{
+                    width: 310px;
+                    height:190px;
+                    top: 20px;
+                    left:390px;
+                }
+                .div3{
+                    width: 310px;
+                    height: 190px;
+                    top: 230px;
+                    left: 390px;
+                }
+                .div4{
+                    width: 430px;
+                    height:280px;
+                    top: 20px;
+                    left: 720px;
+                }
+                .div5{
+                    width: 350px;
+                    height:240px;
+                    top: 390px;
+                    left: 20px;
+                }
+                .div6{
+                    width: 310px;
+                    height:190px;
+                    top: 440px;
+                    left: 390px;
+                }
+                .div7{
+                    width: 430px;
+                    height:310px;
+                    top: 320px;
+                    left: 720px;
+                }
+            }
+            .type2{
+                width: 100%;
+                box-sizing: border-box;
+                position: relative;
+                @include article;
+                .div1{
+                    width: 310px;
+                    height:190px;
+                    top: 20px;
+                    left: 20px;
+                }
+                .div2{
+                    width: 430px;
+                    height:290px;
+                    top: 20px;
+                    left:350px;
+                }
+                .div3{
+                    width: 350px;
+                    height: 290px;
+                    top: 20px;
+                    left: 800px;
+                }
+                .div4{
+                    width: 310px;
+                    height:190px;
+                    top: 230px;
+                    left: 20px;
+                }
+                .div5{
+                    width: 310px;
+                    height:190px;
+                    top: 440px;
+                    left: 20px;
+                }
+                .div6{
+                    width: 350px;
+                    height:300px;
+                    top: 330px;
+                    left: 350px;
+                }
+                .div7{
+                    width: 430px;
+                    height:300px;
+                    top: 330px;
+                    left: 720px;
+                }
+            }
+            
+        }
+    }
+    
+    @media screen and (max-width:640px){
+        .adjust_content{
+            @include box(100%,120%);
+            position: relative;
+            .page:nth-child(1){
+                position: relative;
+                margin-top: 20px;
+            }
+            .page{
+                @include box(100%,100%);
+                position: relative;
+                margin-top: -20px;
+                a{  
+                    .div1{
+                        .wrapper{
+                           @include insert_left;
+                        }
+                    }
+                    .div2{
+                        .wrapper{
+                            @include insert_right;
+                        }
+                    }
+                    .div3{
+                        .wrapper{
+                            @include insert_left;
+                        }
+                    }
+                    .div4{
+                        .wrapper{
+                            @include insert_right;
+                        }
+                    }
+                    .div5{
+                        .wrapper{
+                            @include insert_left;
+                        }
+                    }
+                    .div7{
+                        .wrapper{
+                            @include insert_right;
+                        }
+                    }
+                    .card{ 
+                        position: relative;
+                        @include box(310px,190px);
+                        @include wrapper;
+                        margin: 20px auto;
+                    }
+                }
+            }
+        }
+    }
+}
+@keyframes insert_left{
+    from{
+        transform: translateX(-640px);
+    }to{
+        transform: translateX(0px);
+    }
+}
+@keyframes insert_right{
+    from{
+        transform: translateX(640px);
+    }to{
+        transform: translateX(0px);
+    }
+}

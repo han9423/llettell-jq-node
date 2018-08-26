@@ -1,0 +1,309 @@
+aside{
+    width: 20%;
+    right:-5px;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(26,26,26,.3);
+    display: inline-block;
+    border-radius: 5px;
+    box-sizing: border-box;
+    user-select: none;
+    @include suit_trans(box-shadow,right);
+    @media screen and (max-width:"640px") {
+        display: none;
+    }
+    &:hover{
+        box-shadow: 0 1px 5px rgba(26, 26, 26, 0.5);
+        right: -10px;
+    }
+    .aside_container{
+        @include box(100%,100%);
+        .aside_top{
+            @include box(100%,40%);
+            border-bottom: 1px solid rgb(165, 165, 165);
+            position: relative;
+            .top_bar{
+                @include box(100%,35px);
+                border-bottom: 1px solid rgba(153, 153, 153, 0.7);
+                background-color: rgb(235, 235, 235);
+                ul{
+                    position: relative;
+                    height: 100%;
+                    li{
+                        display: inline-block;
+                        float: left;
+                    }
+                    .icon_arrow{
+                        width: 25%;
+                        height: 100%;
+                        border-left: 1px solid #999; 
+                        span{
+                            line-height: 3;
+                            margin-left: 0.055rem;
+                            img{
+                                width: 20px;
+                                height:20px;
+                            }                      
+                        }    
+                    }
+                    .icon_font{
+                        @include box(50%,100%);
+                        border-left: 1px solid #999;
+                        color: rgb(49, 49, 49);
+                        span:nth-child(1){
+                            margin-left: 10px;
+                            line-height:35px;
+                        }
+                        span:nth-child(2){
+                            display: inline-block;
+                            @include box(14px,14px);
+                            img{
+                                @include box(100%,100%);
+                            }
+                            margin:{
+                                left: 15px;
+                                top: -7px;
+                            }
+                            position: absolute;
+                            top: 50%;
+                        }
+                    }
+                    .icon_wrong{
+                        @include box(25%,100%);                        
+                        border-left: 1px solid #999;
+                        span{
+                            line-height: 2.8;
+                            margin-left: 0.055rem;
+                            img{
+                                @include box(19px,19px);
+                            }                      
+                        }    
+                    }
+                }
+            }
+            .inside_bar{
+                font-size: 14px;
+                overflow: hidden;
+                .control_margin{
+                    margin:{
+                        left :10px;
+                        top: 5px;
+                    } 
+                    .icon{
+                        background:url(../images/icons/arrow3.png);
+                        background-size: cover;
+                        @include box(14px,14px);                        
+                        display: inline-block;
+                    }
+                    .span_gray{
+                        color:#999;
+                    }
+                    .span_violet{
+                        color: rgb(125, 33, 148);
+                    }
+                    .span_green{
+                        color: #707070;
+                        font-size:20px;
+                        font-weight: 600;   
+                    }
+                }
+            }
+            .bottom_bar{
+                @include box(100%,25px);
+                border-top: 1px solid #999;
+                position: absolute;
+                bottom: 0;
+                $bottom: 100%/7;
+                ul{
+                    @include box(100%,100%);
+                    text-align:center;
+                    li{
+                        color: rgb(49, 49, 49);
+                        line-height: 25px;
+                        display: inline-block;
+                        float: left;
+                        @include box($bottom,100%);
+                        &::after{
+                            @include clearfloat;
+                        }
+                    }
+                    li:nth-child(1){
+                        margin-left: 14px;
+                    }
+                }
+            }
+        }
+        .aside_bottom{
+            @include box(100%,60%);
+            position: relative;
+            top: 0;
+            .bottom_top{
+                @include box(100%,35px);
+                background-color:  #ebebeb;
+                border-bottom: 1px solid rgba(165, 165, 165, 0.746);
+                ul{
+                    position: relative; 
+                    @include box(100%,100%);
+                    li:nth-child(1){
+                        @include box(20%,90%);
+                        border: 1px solid rgba(182, 181, 181, 0.911);
+                        background: rgb(248, 248, 248);
+                        position: absolute;
+                        bottom: 0;
+                        left: 10px;
+                        z-index: 1;
+                        @include textCenter(31.5px);
+                        color:  #313131;
+                        &:hover{
+                            background: #ebebeb;
+                        }
+                    }
+                    li:nth-child(2){
+                        @include box(80px,90%);
+                        position: absolute;
+                        z-index: 1;
+                        @include textCenter(31.5px);
+                        left: 70px;
+                        bottom: 0;
+                        color:  #313131;
+                        &:hover{
+                            background: rgb(224, 224, 224);
+                        }
+                    }
+                    li:nth-child(3){
+                        @include box(14px,14px);
+                        position: absolute;
+                        z-index: 1;
+                        background: url(../images/icons/arrow2.svg);
+                        background-size: cover;
+                        left: 170px;
+                        top: 50%;
+                        margin-top: -7px;
+                    }
+                }
+            }
+            .bottom_inside{
+                @include box(100%,35px);
+                border-bottom: 1px solid rgba(165, 165, 165, 0.746);
+                position: relative;
+                ul{
+                    position: relative;
+                    @include box(100%,100%);
+                    li{
+                        float: left;   
+                        &::after{
+                            @include clearfloat;
+                        }
+                        @include textCenter(35px);
+                    }
+                    @include box(100%,100%);
+                    li:nth-child(1){
+                        @include box(58%,100%);
+                        text-align: left;
+                        padding-left: 10px;
+                        color: #a39f9f;
+                        &:hover{
+                            background: rgb(224, 224, 224);
+                        }   
+                    }
+                    li:nth-child(2){
+                        @include box(14%,100%);
+                        color: #313131;
+                        font-weight: bold;
+                        &:hover{
+                            background: rgb(224, 224, 224);
+                        }
+                    }
+                    li:nth-child(3){
+                        @include box(14%,100%);
+                        font-weight: bold;
+                        color: #313131;
+                        &:hover{
+                            background: rgb(224, 224, 224);
+                        }
+                    }
+                    li:nth-child(4){
+                        @include box(14%,100%);
+                        span{
+                            display: inline-block;
+                            @include box(14px,14px);
+                            background: url(../images/icons/plus.svg);
+                            background-size: cover; 
+                        }
+                        &:hover{
+                            background: rgb(224, 224, 224);
+                        }
+                    }
+                }
+            }
+            .bottom_content{
+                @include box(100%,30%);
+                border-bottom: 1px solid #999;
+                position: relative;
+                background:#ebebeb;
+                .connect_me{
+                    @include box(240px,60px);
+                    @include posCenter(-30px,-120px);
+                    ul{
+                        @include box(100%,100%);
+                        li{
+                            float: left;
+                            @include box(23%,100%);
+                            position: relative;
+                            background-color: rgb(212, 212, 212);
+                            margin-right: 4px;
+                            border-radius: 10px;    
+                            img{
+                                @include posCenter(-20px,-20px);
+                                @include box(40px,40px);
+                                @include suit_trans(top);
+                                &:hover{};
+                                &:active{
+                                    position: relative;
+                                    top: 0px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .my_logo{
+                @include box(100%,50%);
+                position: relative;
+                font-size: 12px;
+                .margin{
+                    @include box(220px,160px);
+                    @include posCenter(-80px,-110px);
+                    border:1.5px dashed #242424;
+                    z-index: 1;
+                    &:hover{
+                        background: rgb(248, 167, 35);
+                    }
+                    .border{
+                        @include box(180px,120px);
+                        @include posCenter(-60px,-90px);                        
+                        border: 1.5px solid #242424; 
+                        z-index: 2;
+                        background: #fff;
+                        &:hover{
+                            background: rgb(250, 194, 105);
+                        }   
+                        .padding{
+                            @include box(150px,90px);
+                            @include posCenter(-45px,-75px);  
+                            border:1.5px dashed #242424;
+                            &:hover{
+                                background: rgb(221, 154, 46);
+                            }  
+                            img{
+                                border: 1px solid #242424;
+                                @include box(80px,80px);
+                                @include posCenter(-40px,-40px);
+                            }
+                        }   
+                    }
+                }
+            }
+        }
+    }
+}

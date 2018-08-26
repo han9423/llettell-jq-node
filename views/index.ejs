@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="src/css/index.css">
     <link rel="stylesheet" href="src/css/fontload.css">
     <link media="(max-width:640px)" rel="stylesheet" href="src/css/mobile_index.css">
-
     <script src="libs/jquery.js"></script>
     <script src="libs/flexible.js"></script>
     <title>下水道的包工头</title>
+    <style>
+
+    </style>
 </head>
 <body>
     <%include ./components/aside.html%>
@@ -19,61 +21,37 @@
         <div class="container">
             <%include ./components/header.html%>
                 <div class="content" id="content">
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                    <div class="adjust_content">
+                        <%length = test.length%>
+                        <%page = Math.ceil(test.length/6)%>
+                        <%for(let i=0;i< page;i++){%>
+                            <div class="page">
+                                <%for(let j=0;j< 7;j++){%>
+                                    <a href="contentText">
+                                        <div class="card div<%=j+1%>">
+                                            <div class="wrapper">
+                                                <div class="imageView"><img src="<%if(test[j]){%><%=test[j].src%><%}%>" alt=""></div>
+                                                <div class="textView"><%if(test[j]){%><%=test[j].article%><%}%></div>
+                                                <section><h3><%if(test[j]){%><%=test[j].article_title%><%}%></h3></section>
+                                            </div>
+                                        </div>
+                                    </a>
+                                <%}%>
+                            </div>
+                            <%test.splice(0,7)%>
+                        <%}%>
+                    </div>
                 </div>
             <%include ./components/footer.html%>
         </div>
-            <%include ./components/cover.html%> 
+        <%include ./components/cover.html%>
+        <div class="mixFunc"></div> 
     </main>
     <script src="src/js/index.js"></script>
+    <script src="libs/gt.js"></script>
     <script>
-        // var aside = document.getElementsByTagName("aside")[0]
-        // var main = document.getElementsByTagName("main")[0];
-        // aside.style.height = window.innerHeight + "px";
     </script>
 </body>
 </html>
+
 

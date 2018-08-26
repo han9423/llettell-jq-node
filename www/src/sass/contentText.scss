@@ -1,0 +1,88 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-size: 16px;
+}
+@mixin box($width,$height){
+    width: $width;
+    height: $height;
+}
+@mixin suit_trans($var...){
+    -webkit-transition:$var .6s; 
+    -o-transition:$var .6s; 
+    -ms-transition:$var .6s; 
+    -moz-transition:$var .6s; 
+    transition: $var .6s;
+}
+@mixin scale_animation($num){
+    -webkit-transform:scale($num);
+    -ms-transform:scale($num);
+    -o-transform:scale($num);
+    -moz-transform:scale($num);
+    transform:scale($num);
+}
+@mixin translate_animation($x,$y){
+    -webkit-transform:translate($x,$y);
+    -ms-transform:translate($x,$y);
+    -o-transform:translate($x,$y);
+    -moz-transform:translate($x,$y);
+    transform:translate($x,$y);
+}
+@mixin suit_filter($value){
+    -webkit-filter: grayscale($value);
+    -ms-filter: grayscale($value);
+    -o-filter: grayscale($value);
+    -moz-filter: grayscale($value);
+    filter: grayscale($value)
+}
+@mixin darkMode(){
+    background-color: rgb(31, 30, 30);
+    color: #fff;
+}
+@mixin lightMode(){
+    background-color: #fff;
+    color: rgb(31, 30, 30);
+}
+@mixin clearfloat{
+    content:"";
+    clear: both;
+    display: block;
+}
+@mixin textCenter($height){
+    text-align:center;
+    line-height: $height;
+}
+@mixin posCenter($top,$left){
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin:{
+        left: $left;
+        top: $top;
+    }
+}
+@import "./components/header.scss";
+@import "./components/footer.scss";
+header{
+    .header_right{
+        margin-right: 0;
+    }
+    @media screen and (max-width: 640px){
+        border: none;
+        .header_left{
+            ul{
+                li{
+                    span{
+                        display: none;
+                    }
+                }
+            }
+        }
+        .header_right{
+            display: none;
+        }
+    }
+}

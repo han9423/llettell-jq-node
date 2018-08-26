@@ -50,7 +50,7 @@ main{
                 .search{
                     width: 100%;
                     input{
-                        margin-right: 10px;
+                        margin-right: 14px;
                     }
                 }
                 .user{
@@ -73,11 +73,11 @@ main{
     -moz-transition: transform 0.5s ease;
     -o-transition: transform 0.5s ease;
     -ms-transition: transform 0.5s ease;
-    -ms-transform: translate(-200px);
-    -moz-transform: translate(-200px);
-    -o-transform: translate(-200px);
-    -webkit-transform: translate(-200px);
-    transform: translate(-200px);
+    -ms-transform: translate(-300px);
+    -moz-transform: translate(-300px);
+    -o-transform: translate(-300px);
+    -webkit-transform: translate(-300px);
+    transform: translate(-300px);
     .mobile_mylogo{
         @include box(100%,23%);
         position: relative;
