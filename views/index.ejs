@@ -22,23 +22,23 @@
             <%include ./components/header.html%>
                 <div class="content" id="content">
                     <div class="adjust_content">
-                        <%length = test.length%>
-                        <%page = Math.ceil(test.length/6)%>
+                        <%length = articleList.length%>
+                        <%page = Math.ceil(articleList.length/6)%>
                         <%for(let i=0;i< page;i++){%>
                             <div class="page">
                                 <%for(let j=0;j< 7;j++){%>
-                                    <a href="contentText">
+                                    <a href="contentText/<%if(articleList[j]){%><%='article'+articleList[j].id%><%}%>">
                                         <div class="card div<%=j+1%>">
                                             <div class="wrapper">
-                                                <div class="imageView"><img src="<%if(test[j]){%><%=test[j].src%><%}%>" alt=""></div>
-                                                <div class="textView"><%if(test[j]){%><%=test[j].article%><%}%></div>
-                                                <section><h3><%if(test[j]){%><%=test[j].article_title%><%}%></h3></section>
+                                                <div class="imageView"><img src="<%if(articleList[j]){%><%=articleList[j].src%><%}%>"></div>
+                                                <div class="textView"><%if(articleList[j]){%><%=articleList[j].article%><%}%></div>
+                                                <section><h3><%if(articleList[j]){%><%=articleList[j].article_title%><%}%></h3></section>
                                             </div>
                                         </div>
                                     </a>
                                 <%}%>
                             </div>
-                            <%test.splice(0,7)%>
+                            <%articleList.splice(0,7)%> 
                         <%}%>
                     </div>
                 </div>

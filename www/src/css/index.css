@@ -19,12 +19,10 @@ main {
   @media screen and (max-width: 640px) {
     main {
       width: 100%;
-      overflow: hidden;
       font-size: .7rem; } }
   main .container {
     width: 110%;
-    overflow-y: auto;
-    height: 686px; }
+    overflow-y: auto; }
     main .container header {
       box-sizing: border-box;
       width: 100%;
@@ -215,10 +213,10 @@ main {
                 main .container .content .adjust_content .type1 a .card .wrapper .textView {
                   position: absolute;
                   width: 100%;
-                  height: 120px;
+                  height: 116px;
                   top: 0;
                   color: #000;
-                  font-size: 20px;
+                  font-size: 16px;
                   padding: 10px;
                   overflow: hidden; }
                 main .container .content .adjust_content .type1 a .card .wrapper section {
@@ -314,10 +312,10 @@ main {
                 main .container .content .adjust_content .type2 a .card .wrapper .textView {
                   position: absolute;
                   width: 100%;
-                  height: 120px;
+                  height: 116px;
                   top: 0;
                   color: #000;
-                  font-size: 20px;
+                  font-size: 16px;
                   padding: 10px;
                   overflow: hidden; }
                 main .container .content .adjust_content .type2 a .card .wrapper section {
@@ -455,10 +453,10 @@ main {
                 main .container .content .adjust_content .page a .card .wrapper .textView {
                   position: absolute;
                   width: 100%;
-                  height: 120px;
+                  height: 116px;
                   top: 0;
                   color: #000;
-                  font-size: 20px;
+                  font-size: 16px;
                   padding: 10px;
                   overflow: hidden; }
                 main .container .content .adjust_content .page a .card .wrapper section {
@@ -910,7 +908,8 @@ aside {
         line-height: 50px;
         font-size: 22px; }
         .wrapper_login .wrapper_top ul li:hover {
-          background: #e6e6e6; }
+          background: #e6e6e6;
+          font-size: 23px; }
       .wrapper_login .wrapper_top ul li:nth-child(1) {
         border-radius: 10px 0px 0px 0px; }
       .wrapper_login .wrapper_top ul li:nth-child(2) {

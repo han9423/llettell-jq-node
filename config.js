@@ -3,6 +3,7 @@ const winston = require("winston");
 const consolidate = require("consolidate");
 const expressWinston = require("express-winston");
 module.exports = {
+    public_secret: "outlook15398207602@ ",
     port: 3000,
     db: mysql.createPool({
         user: "root",
@@ -16,7 +17,9 @@ module.exports = {
         cookie: {
             maxAge: 3600 * 24 * 10,
             httpOnly: true,
-        }
+        },
+        resave: true,
+        saveUninitialized: false
     },
     consolidate(app) {
         app.set("view engine", "html");

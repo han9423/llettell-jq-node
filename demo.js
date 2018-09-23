@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 router.get("/",(req,res)=>{
-    console.log("check")
+    console.log("check");
     res.end();
 })
 

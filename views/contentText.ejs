@@ -9,32 +9,30 @@
     <link rel="stylesheet" href="../src/css/contentText.css">
     <script src="../libs/jquery.js"></script>
     <script src="../libs/flexible.js"></script>
+    <script src="https://cdn.bootcss.com/showdown/1.8.6/showdown.min.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <style>
+    </style>
     <title>Document</title>
 </head>
 <body>
     <%include ./components/header.html%>
     <div class="article_content">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <article></article>
+        <div id="comment"></div>
     </div>
     <%include ./components/footer.html%>
-    <script src="../src/js/contentText.js"></script>
+    <script src="../src/js/contentText.js" async></script>
+    <script>    
+        new Promise((resolve,reject)=>{
+            $("article p code").wrap("<pre></pre>");
+            resolve();
+        }).then(()=>{
+            var text = `<%=content[0].text%>`;
+            var converter = new showdown.Converter();
+            var content = converter.makeHtml(text);
+            $("article").html(content);
+        })
+    </script>
 </body>
 </html>

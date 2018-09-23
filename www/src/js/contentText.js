@@ -11,9 +11,8 @@ $(function(){
                         "width" : "120px"
                     },600);
                 }
-            })    
-        }   
-        
+            }) 
+        }    
         init(){
             this.search_animation();
         }

@@ -29,10 +29,10 @@
         }
         .textView{
             position: absolute;
-            @include box(100%,120px);
+            @include box(100%,116px);
             top: 0; 
             color: #000;
-            font-size: 20px;
+            font-size: 16px;
             padding: 10px;
             overflow: hidden;
         }
@@ -73,8 +73,12 @@
     -moz-animation: insert_right 0.6s ease;
     -o-animation: insert_right 0.6s ease;
 }
+
+
+
 .content{
     overflow: hidden;
+    
     @media screen and (min-width:640px){
         .adjust_content{
             @include box(100%,100%);

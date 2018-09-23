@@ -21,7 +21,38 @@
 main{
     .container{
         header{
+            position: relative;
             border: none;
+            .login_mbox{
+                @include box(100%,80%);
+                .wrapper_login{
+                    .returnStatus{
+                        top: 5px;
+                    }
+                    .wrapper_log{
+                        height: 100%;
+                        position: absolute;
+                        top: 25px;
+                        #form{
+                            position:relative;
+                            height: 100%;
+                            .form_container{
+                                height: 100%;
+                                label{
+                                    margin-left: -5px;
+                                }
+                                #btn{
+                                    margin-left: -20px;
+                                }
+                            }
+
+                        }
+                    }
+                    .wrapper_top{
+                        display: none;
+                    }
+                }
+            }
             .menu{
                 z-index: 5;
                 overflow: hidden;
@@ -41,12 +72,13 @@ main{
                 background-size: cover;
             }
             .header_left{
+                height: 35px;
                 ul{
                   display: none;
                 }
             }
             .header_right{
-                @include box(45%,100%);
+                @include box(45%,35px);
                 .search{
                     width: 100%;
                     input{
@@ -117,8 +149,16 @@ main{
         ul{
             @include box(100%,80%);
             @include mobile_aside;
+            li{
+                &:hover{}
+                &:active{
+                    position: relative;
+                    top: 2px;
+                }
+            }
         }
     }
+
     .test{
         ul{
             li{
@@ -132,6 +172,7 @@ main{
         }
     }
 }
+
 .out{
     transform: translate(0px);
     -ms-transform: translate(0px);
